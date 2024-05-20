@@ -1,0 +1,65 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This contains a set of utilities API",
+        "title": "Thistine's Utils API",
+        "contact": {
+            "name": "Thistine",
+            "url": "https://thistine.com",
+            "email": "tine@thistine.com"
+        },
+        "version": "1.0"
+    },
+    "paths": {
+        "/qr/v1/make": {
+            "get": {
+                "description": "Generate QRCode",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "image/png"
+                ],
+                "tags": [
+                    "QRCodeAPI"
+                ],
+                "summary": "Generate QRCode",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Text to generate QRCode",
+                        "name": "text",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Size of QRCode (in pixel)",
+                        "name": "size",
+                        "in": "query"
+                    },
+                    {
+                        "type": "boolean",
+                        "description": "Border of QRCode",
+                        "name": "disableBorder",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

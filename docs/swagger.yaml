@@ -1,0 +1,43 @@
+info:
+  contact:
+    email: tine@thistine.com
+    name: Thistine
+    url: https://thistine.com
+  description: This contains a set of utilities API
+  title: Thistine's Utils API
+  version: "1.0"
+paths:
+  /qr/v1/make:
+    get:
+      consumes:
+      - application/json
+      description: Generate QRCode
+      parameters:
+      - description: Text to generate QRCode
+        in: query
+        name: text
+        required: true
+        type: string
+      - description: Size of QRCode (in pixel)
+        in: query
+        name: size
+        type: integer
+      - description: Border of QRCode
+        in: query
+        name: disableBorder
+        type: boolean
+      produces:
+      - image/png
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+      summary: Generate QRCode
+      tags:
+      - QRCodeAPI
+swagger: "2.0"
