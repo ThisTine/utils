@@ -14,7 +14,7 @@ import (
 // Injectors from wire.go:
 
 func initQrCodeAPI() controllers.QrController {
-	qrService := services.ProvideQrService()
-	qrController := controllers.ProvideQrController(qrService)
+	iQrService := services.ProvideQrService()
+	qrController := controllers.ProvideQrController(iQrService)
 	return qrController
 }

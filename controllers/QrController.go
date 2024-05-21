@@ -8,10 +8,10 @@ import (
 )
 
 type QrController struct {
-	QrService services.QrService
+	QrService services.IQrService
 }
 
-func ProvideQrController(qrService services.QrService) QrController {
+func ProvideQrController(qrService services.IQrService) QrController {
 	return QrController{QrService: qrService}
 }
 

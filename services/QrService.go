@@ -6,11 +6,15 @@ import (
 	"image/png"
 )
 
+type IQrService interface {
+	MakeQR(text string, size int, disableBorder bool) (image []byte, err error)
+}
+
 type QrService struct {
 }
 
-func ProvideQrService() QrService {
-	return QrService{}
+func ProvideQrService() IQrService {
+	return &QrService{}
 }
 
 func (q *QrService) MakeQR(text string, size int, disableBorder bool) (image []byte, err error) {
